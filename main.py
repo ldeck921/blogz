@@ -5,19 +5,20 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:build-a-blog@localhost:8889/build-a-blog'
 app.config['SQLALCHEMY_ECHO'] = True
+
 db = SQLAlchemy(app)
 
 
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)     
-    title = db.Column(db.Text)  
-    post = db.Column(db.Text)   
+    title = db.Column(db.String(120))  
+    post = db.Column(db.String(120))   
 
     def __init__(self, title, post):
         self.title = title
         self.post = post 
 
-
+ 
 @app.route('/blog')
 def show_blog():
     post_id = request.args.get('id')
