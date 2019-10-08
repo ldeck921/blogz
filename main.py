@@ -23,7 +23,7 @@ class Blog(db.Model):
 def show_blog():
     post_id = request.args.get('id')
     if (post_id):
-        ind_post = Blog.query.get(post_id)
+        individ_post = Blog.query.get(post_id)
         return render_template('individ_post.html', individ_post=individ_post)
     else:
         all_blog_posts = Blog.query.all()
@@ -62,7 +62,7 @@ def add_entry():
             if not empty_val(post_title) and not empty_val(post_entry):
                 title_error = "Please enter text for blog title"
                 blog_entry_error = "Please enter text for blog entry"
-                return render_template('new_post.html', blog_entry_error=blog_entry_error, title_error=title_error)
+                return render_template('newpost.html', blog_entry_error=blog_entry_error, title_error=title_error)
             elif not empty_val(post_title):
                 title_error = "Please enter text for blog title"
                 return render_template('newpost.html', title_error=title_error, post_entry=post_entry)
