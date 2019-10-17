@@ -14,8 +14,8 @@ class Blog(db.Model):
 
     
     id = db.Column(db.Integer, primary_key=True)     
-    title = db.Column(120)  
-    post = db.Column(120)   
+    title = db.Column(db.Text)  
+    post = db.Column(db.Text)   
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __init__(self, title, post, owner):
