@@ -7,10 +7,7 @@
 
     <div>
             <ul>
-                <!-- user is defined here (can be anything) -->
-                <!-- list_all_users comes from parameters in render_template -->
                 {% for user in list_all_users %}
-                <!-- username is defined in db -->
                 <li><a href="./blog?owner_id={{user.id}}">{{user.username}}</a></li>
                 {% endfor %}
             </ul>

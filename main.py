@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 
 db = SQLAlchemy(app)
 
+app.secret_key = 'df8f78dsa83mnk'
 
 
 class Blog(db.Model):
