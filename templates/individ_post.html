@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+
+
 <h1>Individual Blog Posts</h1>
 
     <div>
-        <h2>{{individ_post.title}}</h2>
-        <p class="entry">{{individ_post.post}}</p>
-        <p class="byline">Written by <a href="./blog?owner_id={{individ_post.owner_id}}">{{individ_post.owner.username}}</a></p>
+        {% for blog in posts %}
+            <h2><a href="./blog?id={{blog.id}}">{{ind_post.title}}</a></h2>
+            <p class="entry">{{ind_post.post}}</p>
+            <p class="byline">Written by <a href="./blog?owner_id={{ind_post.owner_id}}">{{ind_post.owner.username}}</a></p>
+        {% endfor %}
+   
     </div>
     
 

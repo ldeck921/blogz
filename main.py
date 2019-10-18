@@ -44,17 +44,17 @@ def require_login():
 
 @app.route('/')
 def index():
-    all_users = User.query.distinct()
+    all_users = User.query.all()
     return render_template('index.html', list_all_users=all_users)
 
 
-@app.route('/blog')
+@app.route('/blogz')
 def show_blog():
     post_id = request.args.get('id')
     single_user_id = request.args.get('owner_id')
     if (post_id):
-        ind_post = Blog.query.get(post_id)
-        return render_template('individ_post.html', individ_post=individ_post)
+        ind_post = Blog.query.filter_by(id=post_id)
+        return render_template('individ_post.html', individ_post=ind_post)
     else:
         if (single_user_id):
             ind_user_blog_posts = Blog.query.filter_by(owner_id=single_user_id)
