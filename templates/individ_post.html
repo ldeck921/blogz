@@ -6,10 +6,10 @@
 <h1>Individual Blog Posts</h1>
 
     <div>
-        {% for blog in posts %}
-            <h2><a href="./blog?id={{blog.id}}">{{ind_post.title}}</a></h2>
-            <p class="entry">{{ind_post.post}}</p>
-            <p class="byline">Written by <a href="./blog?owner_id={{ind_post.owner_id}}">{{ind_post.owner.username}}</a></p>
+        {% for blog in individ_posts %}
+            <h2><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h2>
+            <p class="entry">{{blog.post}}</p>
+            <p class="byline">Written by <a href="./blog?owner_id={{blog.owner_id}}">{{blog.owner.username}}</a></p>
         {% endfor %}
    
     </div>
